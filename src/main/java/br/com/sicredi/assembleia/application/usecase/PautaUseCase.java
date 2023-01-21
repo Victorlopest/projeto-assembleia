@@ -25,15 +25,35 @@ public class PautaUseCase {
         for (Pauta pauta : pautas) {
             pautasDTO.add(pautaAssembler.toPautaDTO(pauta));
         }
-        return pautasDTO;
+        return pautaValidator.verificaSeListaPautasEstaVazia(pautasDTO);
     }
 
     public PautaDTO buscarPorId(Long pautaId) {
 
         Optional<Pauta> pauta = (pautaRepository.findById(pautaId));
-        Pauta pauta1 = pautaValidator.pautaExiste(pauta);
-
-        return pautaAssembler.toPautaDTO(pauta1);
+        return pautaAssembler.toPautaDTO(pautaValidator.verificaSePautaExiste(pauta));
     }
 
+    public Pauta salvar(Pauta pauta){
+//        return pautaAssembler.toPautaDTO(pautaRepository.saveAndFlush(pauta));
+        return pautaRepository.save(pauta);
+    }
+
+    public PautaDTO atualizarPauta(Pauta pauta, Long pautaId) {
+
+        Optional<Pauta> pautaOptional = (pautaRepository.findById(pautaId));
+        pautaValidator.verificaSePautaExisteVoid(pautaOptional);
+
+        pauta.setId(pautaId);
+        return pautaAssembler.toPautaDTO(pautaRepository.save(pauta));
+    }
+
+    public PautaDTO aabrirPauta(Pauta pauta, Long pautaId) {
+
+        Optional<Pauta> pautaOptional = (pautaRepository.findById(pautaId));
+        pautaValidator.verificaSePautaExisteVoid(pautaOptional);
+
+        pauta.setId(pautaId);
+        return pautaAssembler.toPautaDTO(pautaRepository.save(pauta));
+    }
 }

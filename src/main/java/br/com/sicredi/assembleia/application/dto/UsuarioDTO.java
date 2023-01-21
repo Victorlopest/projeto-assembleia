@@ -9,12 +9,9 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Builder
-public class PautaDTO {
+public class UsuarioDTO {
     private Long id;
-    private String titulo;
-    private int status;
-    private String descricao;
-    private LocalDateTime horaInicio;
-    private LocalDateTime horafim;
+    private String nome;
+    private String cpf;
 
 }
