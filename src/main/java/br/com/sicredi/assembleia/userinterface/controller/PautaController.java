@@ -3,12 +3,11 @@ package br.com.sicredi.assembleia.userinterface.controller;
 
 import br.com.sicredi.assembleia.application.dto.PautaDTO;
 import br.com.sicredi.assembleia.application.usecase.PautaUseCase;
+import br.com.sicredi.assembleia.infrastructure.database.presentation.Pauta;
+import io.swagger.annotations.ApiParam;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,5 +28,20 @@ public class PautaController {
         return ResponseEntity.ok(pautaUseCase.buscarPorId(pautaId));
     }
 
+    @PostMapping(name = "Cria uma nova pauta")
+    public Pauta save(@RequestBody Pauta pauta) {
+        return pautaUseCase.salvar(pauta);
+
+    }
+
+    @PatchMapping(value = "/{pautaId}", name = "Edita uma pauta existente")
+    public ResponseEntity<PautaDTO> atualizarPauta(@ApiParam(value = "Dados da pauta a ser editada") @RequestBody Pauta pauta, @PathVariable Long pautaId) {
+        return ResponseEntity.ok(pautaUseCase.atualizarPauta(pauta, pautaId));
+    }
+
+    @PatchMapping(value = "/abrir/{pautaId}", name = "Abre uma votação para uma pauta existente")
+    public ResponseEntity<PautaDTO> abrirVotacaoPauta(@ApiParam(value = "Altera uma pauta para aberta ou fechada") @RequestBody Pauta pauta, @PathVariable Long pautaId) {
+        return ResponseEntity.ok(pautaUseCase.atualizarPauta(pauta, pautaId));
+    }
 
 }
