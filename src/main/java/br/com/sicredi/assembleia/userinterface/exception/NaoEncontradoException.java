@@ -4,9 +4,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(code = HttpStatus.NOT_FOUND)
-public class NotFoundException extends RuntimeException {
+public class NaoEncontradoException extends RuntimeException {
 
-    public NotFoundException(String mensagem) {
+    public NaoEncontradoException(String mensagem) {
         super(mensagem);
     }
 }
