@@ -123,7 +123,7 @@ public class PautaController {
             @ApiResponse(code = 400, message = "A quantidade de minutos é inválida.")
     })
     @PatchMapping(value = "/abrir/{pautaId}", name = "Abre uma votação para uma pauta existente",produces="application/json", consumes="application/json")
-    public ResponseEntity<PautaDTO> abrirVotacaoPauta(@Valid @ApiParam(value = "Altera uma pauta para aberta ou fechada e define o tempo que ficará aberta")
+    public ResponseEntity<PautaDTO> abrirVotacaoPauta(@ApiParam(value = "Altera uma pauta para aberta ou fechada e define o tempo que ficará aberta")
                                                       @RequestBody PautaAberturaModelRequest pautaAberturaModelRequest, @PathVariable Long pautaId) {
         log.info("Abrindo uma sessão de votação para a pauta" + pautaId);
         return ResponseEntity.ok(pautaUseCase.abrirPauta(pautaAberturaModelRequest, pautaId));
