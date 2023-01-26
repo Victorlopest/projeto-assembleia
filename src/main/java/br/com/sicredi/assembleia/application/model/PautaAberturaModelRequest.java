@@ -23,7 +23,5 @@ import javax.validation.constraints.NotNull;
 public class PautaAberturaModelRequest {
 
     @ApiModelProperty(value = "Tempo que a pauta deve permanecer aberta", name = "horasVotacaoAberta", example = "HHH:MM")
-    @NotNull(message = "O campo horasVotacaoAberta não pode ser nulo")
-    @NotBlank(message = "O campo horasVotacaoAberta não pode ser vazio ou em branco")
     private String horasVotacaoAberta;
 }
