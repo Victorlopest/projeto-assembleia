@@ -53,10 +53,10 @@ O Swagger pode ser acessado pela url:
 ## OSERVAÇOES FINAIS
 
 - A tarefa Bonus 1 foi implementada na classe `ServiceCPF` contida no pacote `external`, porem não foi chamada
-no UseCase pois estava retornando um erro, mesmo assim deixei ela implementada para analise da forma que foi feita.
+no UseCase pois a URL da chamada externa fornecida no teste está retornando um erro, mesmo assim deixei ela implementada para analise da forma que foi feita.
 para contornar esse problema e simular a chamada externa, foi criado um metodo que recebe um random e
 retorna se o CPF é válido, Apto para o voto ou inapto, tudo feito de forma aleatória, não há validação alguma de CPF.
 - Alguns testes unitários não foram feitos devido a falta de tempo para entrega do projeto, a cobertura não está 100%.
 - A tarefa bonus 2 não foi feita.
 - A tarefa 3 foi descrita acima. 
-- A arquitetura usada foi a clean architecture pois é a que tenho mais familiaridade.
+- A arquitetura usada foi a clean architecture pois é a que tenho mais familiaridade e trabalho no dia a dia.
