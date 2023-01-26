@@ -29,7 +29,5 @@ public class VotacaoModelRequest {
     @NotBlank(message = "O campo pautaId não pode ser vazio ou em branco")
     private Long pautaId;
     @ApiModelProperty(value = "Voto na pauta", name = "voto", example = "1 para sim, 2 para não")
-    @NotNull(message = "O campo voto não pode ser nulo")
-    @NotBlank(message = "O campo voto não pode ser vazio ou em branco")
     private Integer voto;
 }

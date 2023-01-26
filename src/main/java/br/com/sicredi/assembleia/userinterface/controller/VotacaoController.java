@@ -39,7 +39,7 @@ public class VotacaoController {
             @ApiResponse(code = 400, message = "O CPF digitado já votou nessa pauta")
     })
     @PostMapping(name = "Salva um voto de um usuário", produces="application/json", consumes="application/json")
-    public ResponseEntity<VotacaoDTO> salvar(@Valid @RequestBody VotacaoModelRequest votacaoModelRequest) {
+    public ResponseEntity<VotacaoDTO> salvar(@RequestBody VotacaoModelRequest votacaoModelRequest) {
         return new ResponseEntity<>((votacaoUseCase.salvar(votacaoModelRequest)), HttpStatus.CREATED);
 
     }
